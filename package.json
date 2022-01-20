@@ -1,5 +1,5 @@
 {
-  "name": "Hydrological_Model_of_Ukraine",
+  "name": "hydrological",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "core-js": "^3.19.3",
+    "json-loader": "^0.5.7",
     "nuxt": "^2.15.8",
     "nuxt-leaflet": "^0.0.27",
     "vue": "^2.6.14",

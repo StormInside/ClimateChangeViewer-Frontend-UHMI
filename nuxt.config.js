@@ -24,9 +24,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
   ],
-  modules: [
-    'nuxt-leaflet',
-  ],
+  modules: ['nuxt-leaflet'],
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -44,5 +42,12 @@ export default {
       },
     },
   },
-  build: {},
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.geojson$/,
+        loader: 'json-loader',
+      })
+    },
+  },
 }
