@@ -8,21 +8,21 @@
             :zoom="mapsData.mapConfig.zoom"
             :options="mapsData.mapOptions"
           >
-            <l-control-layers position="topright" />
+            <layers-control-main-control />
             <l-control-attribution
               class="custom-leaflet-attribution"
               position="bottomleft"
               :prefix="false"
             />
             <l-tile-layer
-              v-for="(mapsProviders, i) in mapsData.mapsProviders"
-              :key="i"
-              :name="mapsProviders.name"
-              :visible="mapsProviders.visible"
-              :url="mapsProviders.url"
-              :attribution="mapsProviders.attribution"
-              :subdomains="mapsProviders.subdomains"
-              :tms="mapsProviders.tms"
+              v-for="tile in mapsData.mapsProviders"
+              :key="tile.name"
+              :url="tile.url"
+              :name="tile.name"
+              :attribution="tile.attribution"
+              :subdomains="tile.subdomains"
+              :tms="tile.tms"
+              :visible="tile.visible"
               layer-type="base"
             />
             <geo-soil-layer />
@@ -34,14 +34,12 @@
 </template>
 
 <script>
-import mapsData from 'static/maps/maps-data.json'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'IndexPage',
-  data() {
-    return {
-      mapsData,
-    }
+  computed: {
+    ...mapGetters('map', ['mapsData']),
   },
 }
 </script>

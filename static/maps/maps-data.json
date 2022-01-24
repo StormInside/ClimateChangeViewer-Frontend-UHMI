@@ -18,12 +18,8 @@
     ]
   },
   "settingsItem": {
-    "titles": [
-      "SWAT"
-    ],
-    "routes": [
-      "/settings-item/swat"
-    ]
+    "titles": ["SWAT"],
+    "routes": ["/settings-item/swat"]
   },
   "mapOptions": {
     "maxZoom": 19,
@@ -34,10 +30,7 @@
   },
   "mapConfig": {
     "zoom": 6.5,
-    "center": [
-      "48.517834614762336",
-      "32.2225272566878"
-    ]
+    "center": ["48.517834614762336", "32.2225272566878"]
   },
   "mapsProviders": [
     {
@@ -45,12 +38,7 @@
       "visible": true,
       "attribution": "<div style=font-size: 0.8571428rem; display: flex;>Google Maps</div>",
       "url": "http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
-      "subdomains": [
-        "mt0",
-        "mt1",
-        "mt2",
-        "mt3"
-      ]
+      "subdomains": ["mt0", "mt1", "mt2", "mt3"]
     },
     {
       "name": "VisicomMaps",
@@ -65,10 +53,7 @@
       "visible": false,
       "attribution": "<div style=font-size: 0.8571428rem; display: flex;>USGS, NOAA</div>",
       "url": "http://{s}.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-      "subdomains": [
-        "server",
-        "services"
-      ]
+      "subdomains": ["server", "services"]
     }
   ]
 }
