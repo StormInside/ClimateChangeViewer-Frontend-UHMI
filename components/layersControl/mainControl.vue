@@ -2,7 +2,7 @@
   <v-container fluid class="layers-control pa-0">
     <v-row class="ma-0">
       <v-col cols="12" class="ma-0 pa-0">
-        <v-btn class="float-right" rounded @click="showControl = !showControl">
+        <v-btn class="float-right mr-4" @click="showControl = !showControl">
           <v-icon>mdi-layers-triple</v-icon>
         </v-btn>
       </v-col>
@@ -10,7 +10,7 @@
     <transition name="controlCard">
       <v-row v-if="showControl" class="ma-0">
         <v-col class="ma-0 pa-0">
-          <v-card width="21vw">
+          <v-card width="20vw">
             <layers-control-provider-control />
           </v-card>
         </v-col>
@@ -32,10 +32,6 @@ export default {
 
 <style scoped lang="scss">
 .layers-control {
-  position: absolute;
-  top: 2vh;
-  right: 2vw;
-  z-index: 500;
   width: 25vw;
 }
 

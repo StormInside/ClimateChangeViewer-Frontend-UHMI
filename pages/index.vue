@@ -8,7 +8,9 @@
             :zoom="mapsData.mapConfig.zoom"
             :options="mapsData.mapOptions"
           >
-            <layers-control-main-control />
+            <l-control>
+              <layers-control-main-control />
+            </l-control>
             <l-control-attribution
               class="custom-leaflet-attribution"
               position="bottomleft"

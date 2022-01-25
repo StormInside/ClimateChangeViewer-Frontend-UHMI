@@ -3,6 +3,10 @@
     <v-select
       v-model="currentMapLayer"
       return-object
+      hide-details
+      filled
+      dense
+      :menu-props="{ offsetY: true }"
       :items="mapsData.mapsProviders"
       item-text="name"
     />

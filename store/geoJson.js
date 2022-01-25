@@ -1,32 +1,18 @@
 export default {
   state: () => ({
-    style: {
-      active: {
-        fillColor: '#dce653',
-        radius: 6.5,
-        color: '#294b67',
-        weight: 1.3,
-        fillOpacity: 1,
-      },
-      passive: {
-        color: '#294b67',
-        fillColor: 'rgba(57, 61, 63, 0.25)',
-        radius: 5,
-        weight: 1.3,
-        fillOpacity: 1,
-      },
+    tooltip: {
+      visible: false,
+      item: null,
     },
   }),
-  mutations: {},
-  actions: {
-    mouseOver({ getters }, layer) {
-      layer.setStyle(getters.style.active)
-    },
-    mouseOut({ getters }, layer) {
-      layer.setStyle(getters.style.passive)
+  mutations: {
+    setTooltip(state, { visible, item }) {
+      state.tooltip.visible = visible
+      state.tooltip.item = item
     },
   },
+  actions: {},
   getters: {
-    style: (state) => state.style,
+    tooltip: (state) => state.tooltip,
   },
 }
