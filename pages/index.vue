@@ -11,11 +11,10 @@
             <l-control>
               <layers-control-main-control />
             </l-control>
-            <l-control-attribution
-              class="custom-leaflet-attribution"
-              position="bottomleft"
-              :prefix="false"
-            />
+            <l-control-attribution position="bottomleft" :prefix="false" />
+            <l-control position="bottomleft">
+              <geo-color-info />
+            </l-control>
             <l-tile-layer
               v-for="tile in mapsData.mapsProviders"
               :key="tile.name"
