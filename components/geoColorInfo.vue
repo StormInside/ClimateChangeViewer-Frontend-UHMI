@@ -1,5 +1,5 @@
 <template>
-  <v-card width="300">
+  <v-card width="300" color="infoPanel">
     <div class="d-flex align-center justify-center">
       <v-card-title class="ll-0">Soil hydrological group</v-card-title>
       <v-btn icon @click="showColors = !showColors">
@@ -9,8 +9,8 @@
       </v-btn>
     </div>
     <v-expand-transition>
-      <v-card v-show="showColors">
-        <v-list>
+      <v-card v-show="showColors" class="transparent">
+        <v-list class="transparent">
           <v-list-item v-for="(item, i) in info" :key="i">
             <v-list-item-icon>
               <v-card :color="item.color" width="20" height="20" />
@@ -50,6 +50,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.infoPanel {
+  position: absolute;
+  z-index: 998;
+  bottom: 3vh;
+  left: 0.5vw;
+}
 .colorInfo-enter-active,
 .colorInfo-leave-active {
   opacity: 1;

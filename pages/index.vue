@@ -12,9 +12,7 @@
               <layers-control-main-control />
             </l-control>
             <l-control-attribution position="bottomleft" :prefix="false" />
-            <l-control position="bottomleft">
-              <geo-color-info />
-            </l-control>
+            <geo-color-info />
             <l-tile-layer
               v-for="tile in mapsData.mapsProviders"
               :key="tile.name"

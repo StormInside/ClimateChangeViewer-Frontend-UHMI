@@ -1,18 +1,14 @@
 export default {
   state: () => ({
-    tooltip: {
-      visible: false,
-      item: null,
-    },
+    tooltipItem: null,
   }),
   mutations: {
-    setTooltip(state, { visible, item }) {
-      state.tooltip.visible = visible
-      state.tooltip.item = item
+    setTooltipItem(state, item) {
+      state.tooltipItem = item
     },
   },
   actions: {},
   getters: {
-    tooltip: (state) => state.tooltip,
+    tooltipItem: (state) => state.tooltipItem,
   },
 }

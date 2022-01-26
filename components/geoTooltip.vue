@@ -1,13 +1,13 @@
 <template>
-  <v-simple-table class="tooltip">
+  <v-simple-table>
     <template #default>
-      <tbody v-if="tooltip.item">
+      <tbody v-if="tooltipItem">
         <tr v-for="header in headers" :key="header.value">
           <td>
             {{ header.text }}
           </td>
           <td>
-            {{ tooltip.item[header.value] }}
+            {{ tooltipItem[header.value] }}
           </td>
         </tr>
       </tbody>
@@ -56,16 +56,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('geoJson', ['tooltip']),
+    ...mapGetters('geoJson', ['tooltipItem']),
   },
 }
 </script>
-<style lang="scss" scoped>
-.tooltip {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 25vw;
-}
-</style>
