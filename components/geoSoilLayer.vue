@@ -9,11 +9,17 @@
     />
     <v-tooltip
       v-model="showToolTip"
-      bottom
-      max-width="35vw"
-      :position-y="position.y"
-      :position-x="position.x"
-      offset-overflow
+      absolute
+      :left="tooltipPositionHorizontal"
+      :right="!tooltipPositionHorizontal"
+      :nudge-bottom="tooltipNudgeBottom"
+      :nudge-top="tooltipNudgeTop"
+      :nudge-left="tooltipNudgeLeft"
+      :nudge-right="tooltipNudgeRight"
+      min-width="30vw"
+      max-width="30vw"
+      :position-y="tooltipPositionCoordinates.y"
+      :position-x="tooltipPositionCoordinates.x"
       z-index="999"
       color="transparent"
       transition="scroll-y-transition"
@@ -26,16 +32,13 @@
 <script>
 import soilLayer from 'static/Soils_UA_RU_MD_BY.geojson'
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'GeoSoilLayer',
   data() {
     return {
       soilLayer,
       showToolTip: false,
-      position: {
-        x: null,
-        y: null,
-      },
       style: {
         active: {
           color: '#ff0000',
@@ -53,7 +56,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('geoJson', ['tooltipItem']),
+    ...mapGetters('geoJson', ['tooltipItem', 'tooltipPositionCoordinates']),
     options() {
       return {
         onEachFeature: this.onEachFeatureFunction,
@@ -85,6 +88,29 @@ export default {
         }
       }
     },
+    tooltipPositionHorizontal() {
+      return this.tooltipPositionCoordinates.x >= window.innerWidth / 2
+    },
+    tooltipNudgeBottom() {
+      if (this.tooltipPositionCoordinates.y < window.innerHeight / 2) {
+        return 400
+      } else return 0
+    },
+    tooltipNudgeTop() {
+      if (this.tooltipPositionCoordinates.y > window.innerHeight / 2) {
+        return 400
+      } else return 0
+    },
+    tooltipNudgeLeft() {
+      if (this.tooltipPositionCoordinates.x > window.innerWidth / 2) {
+        return 30
+      } else return 0
+    },
+    tooltipNudgeRight() {
+      if (this.tooltipPositionCoordinates.x < window.innerWidth / 2) {
+        return 30
+      } else return 0
+    },
   },
   methods: {
     mouseover(event) {
@@ -93,8 +119,6 @@ export default {
         'geoJson/setTooltipItem',
         event.layer.feature.properties
       )
-      this.position.y = event.containerPoint.y
-      this.position.x = event.containerPoint.x
       this.showToolTip = true
     },
     mouseout(layer) {

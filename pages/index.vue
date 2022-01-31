@@ -7,6 +7,7 @@
             :center="mapsData.mapConfig.center"
             :zoom="mapsData.mapConfig.zoom"
             :options="mapsData.mapOptions"
+            @mousemove="mousemove($event)"
           >
             <l-control>
               <layers-control-main-control />
@@ -39,6 +40,14 @@ export default {
   name: 'IndexPage',
   computed: {
     ...mapGetters('map', ['mapsData']),
+  },
+  methods: {
+    mousemove(event) {
+      this.$store.commit('geoJson/setTooltipPositionCoordinates', {
+        x: event.originalEvent.clientX,
+        y: event.originalEvent.clientY,
+      })
+    },
   },
 }
 </script>
