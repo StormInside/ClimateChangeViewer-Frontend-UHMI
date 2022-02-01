@@ -10,10 +10,10 @@
             @mousemove="mousemove($event)"
           >
             <l-control>
-              <layers-control-main-control />
+              <lazy-layers-control-panel-main-control />
             </l-control>
             <l-control-attribution position="bottomleft" :prefix="false" />
-            <geo-color-info />
+            <component :is="geoComponentInfo" />
             <l-tile-layer
               v-for="tile in mapsData.mapsProviders"
               :key="tile.name"
@@ -25,7 +25,7 @@
               :visible="tile.visible"
               layer-type="base"
             />
-            <geo-soil-layer />
+            <component :is="geoComponent" class="layers" />
           </l-map>
         </client-only>
       </div>
@@ -39,7 +39,12 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'IndexPage',
   computed: {
-    ...mapGetters('map', ['mapsData']),
+    ...mapGetters('map', [
+      'mapsData',
+      'geoComponent',
+      'geoComponentInfo',
+      'ukraineBordersShow',
+    ]),
   },
   methods: {
     mousemove(event) {
@@ -51,3 +56,13 @@ export default {
   },
 }
 </script>
+<style scoped lang="scss">
+.uaLayer {
+  position: absolute;
+  z-index: 1;
+}
+.layers {
+  position: absolute;
+  z-index: 111;
+}
+</style>

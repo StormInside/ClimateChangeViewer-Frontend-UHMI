@@ -1,7 +1,9 @@
 <template>
-  <v-card width="300" color="infoPanel">
+  <v-card width="250" class="info-card">
     <div class="d-flex align-center justify-center">
-      <v-card-title class="ll-0">Soil hydrological group</v-card-title>
+      <v-card-title class="pa-1 info__title"
+        >Soil hydrological group</v-card-title
+      >
       <v-btn icon @click="showColors = !showColors">
         <v-icon
           >{{ showColors ? 'mdi-chevron-down' : 'mdi-chevron-up' }}
@@ -10,12 +12,14 @@
     </div>
     <v-expand-transition>
       <v-card v-show="showColors" class="transparent">
-        <v-list class="transparent">
-          <v-list-item v-for="(item, i) in info" :key="i">
-            <v-list-item-icon>
-              <v-card :color="item.color" width="20" height="20" />
+        <v-list class="transparent pa-0">
+          <v-list-item v-for="(item, i) in info" :key="i" class="pl-2">
+            <v-list-item-icon class="mr-2">
+              <v-card :color="item.color" width="15" height="15" />
             </v-list-item-icon>
-            <v-list-item-title>{{ item.text }}</v-list-item-title>
+            <v-list-item-title class="info__text"
+              >{{ item.text }}
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-card>
@@ -25,7 +29,7 @@
 
 <script>
 export default {
-  name: 'GeoColorInfo',
+  name: 'GeoInfo',
   data: () => ({
     showColors: true,
     info: [
@@ -50,24 +54,17 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.infoPanel {
+.info-card {
   position: absolute;
   z-index: 998;
   bottom: 3vh;
   left: 0.5vw;
+  background-color: rgba(255, 255, 255, 0.85) !important;
 }
-.colorInfo-enter-active,
-.colorInfo-leave-active {
-  opacity: 1;
-  transform: scaleY(1);
-  transition: transform 0.01s cubic-bezier(0.17, 0.67, 0.83, 0.67),
-    opacity 0.01s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  transform-origin: center bottom;
+.info__title {
+  font-size: 1.3em;
 }
-
-.colorInfo-enter,
-.colorInfo-leave-to {
-  opacity: 0;
-  transform: scaleY(0);
+.info__text {
+  font-size: 1.2em;
 }
 </style>

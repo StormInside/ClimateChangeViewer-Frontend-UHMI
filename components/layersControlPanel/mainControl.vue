@@ -2,16 +2,21 @@
   <v-container fluid class="layers-control pa-0">
     <v-row class="ma-0">
       <v-col cols="12" class="ma-0 pa-0">
-        <v-btn class="float-right mr-4" @click="showControl = !showControl">
+        <v-btn
+          tile
+          class="float-right mr-4 mb-1"
+          @click="showControl = !showControl"
+        >
           <v-icon>mdi-layers-triple</v-icon>
         </v-btn>
       </v-col>
     </v-row>
     <transition name="controlCard">
-      <v-row v-if="showControl" class="ma-0">
+      <v-row v-show="showControl" class="ma-0">
         <v-col class="ma-0 pa-0">
-          <v-card width="20vw">
-            <layers-control-provider-control />
+          <v-card width="20vw" color="rgba(255, 255, 255, 0.85)">
+            <lazy-layers-control-panel-provider-control />
+            <lazy-layers-control-panel-layres-card-control />
           </v-card>
         </v-col>
       </v-row>
@@ -24,7 +29,7 @@ export default {
   name: 'MainControl',
   data() {
     return {
-      showControl: false,
+      showControl: true,
     }
   },
 }

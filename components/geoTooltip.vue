@@ -145,6 +145,6 @@ export default {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 0.8em;
-  line-height: 2vh;
+  line-height: 1.8em;
 }
 </style>

@@ -1,16 +1,18 @@
 <template>
-  <v-card>
+  <div>
+    <v-subheader class="font-weight-bold">Base layers</v-subheader>
     <v-select
       v-model="currentMapLayer"
       return-object
       hide-details
       filled
       dense
+      class="select"
       :menu-props="{ offsetY: true }"
       :items="mapsData.mapsProviders"
       item-text="name"
     />
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -34,3 +36,8 @@ export default {
   },
 }
 </script>
+<style scoped lang="scss">
+.select {
+  z-index: 1000;
+}
+</style>

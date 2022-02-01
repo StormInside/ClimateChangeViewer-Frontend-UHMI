@@ -1,6 +1,7 @@
 <template>
   <div>
     <l-geo-json
+      :weight="3"
       :geojson="soilLayer"
       :options="options"
       :options-style="style.passive"
@@ -30,11 +31,11 @@
 </template>
 
 <script>
-import soilLayer from 'static/Soils_UA_RU_MD_BY.geojson'
+import soilLayer from 'static/layers/Soils_UA_RU_MD_BY.geojson'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'GeoSoilLayer',
+  name: 'GeoLayer',
   data() {
     return {
       soilLayer,
@@ -86,6 +87,7 @@ export default {
             })
             break
         }
+        layer.weight = 3
       }
     },
     tooltipPositionHorizontal() {
@@ -93,12 +95,12 @@ export default {
     },
     tooltipNudgeBottom() {
       if (this.tooltipPositionCoordinates.y < window.innerHeight / 2) {
-        return 350
+        return this.nudgeBreakpoint()
       } else return 0
     },
     tooltipNudgeTop() {
       if (this.tooltipPositionCoordinates.y > window.innerHeight / 2) {
-        return 350
+        return this.nudgeBreakpoint()
       } else return 0
     },
     tooltipNudgeLeft() {
@@ -127,6 +129,15 @@ export default {
         weight: 0.5,
       })
       this.$store.commit('geoJson/setTooltipItem', null)
+    },
+    nudgeBreakpoint() {
+      if (this.$vuetify.breakpoint.xl) {
+        return 250
+      } else if (this.$vuetify.breakpoint.lg) {
+        return 200
+      } else {
+        return 150
+      }
     },
   },
 }
