@@ -17,7 +17,7 @@
       :nudge-left="tooltipNudgeLeft"
       :nudge-right="tooltipNudgeRight"
       min-width="30vw"
-      max-width="30vw"
+      max-width="50vw"
       :position-y="tooltipPositionCoordinates.y"
       :position-x="tooltipPositionCoordinates.x"
       z-index="999"
@@ -93,12 +93,12 @@ export default {
     },
     tooltipNudgeBottom() {
       if (this.tooltipPositionCoordinates.y < window.innerHeight / 2) {
-        return 400
+        return 350
       } else return 0
     },
     tooltipNudgeTop() {
       if (this.tooltipPositionCoordinates.y > window.innerHeight / 2) {
-        return 400
+        return 350
       } else return 0
     },
     tooltipNudgeLeft() {

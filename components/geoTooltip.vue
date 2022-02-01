@@ -1,29 +1,28 @@
 <template>
-  <v-simple-table dense class="pa-0 ma-0">
-    <template #default>
-      <tbody v-if="tooltipItem" class="pa-0 ma-0">
-        <tr v-for="header in headers" :key="header.value" class="pa-0 ma-0">
-          <td class="td-header pa-1">
-            {{ header.text }}
-          </td>
-          <template v-if="header.multiple">
-            <td
-              v-for="number in 5"
-              v-show="tooltipItem[header.value + number] !== '0'"
-              :key="number"
-              class="td-info pa-1"
-            >
-              {{ tooltipItem[header.value + number] }}
-            </td>
-          </template>
-
-          <td v-else colspan="10" class="pa-1 td-info">
-            {{ tooltipItem[header.value] }}
-          </td>
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table>
+  <tbody v-if="tooltipItem" class="table">
+    <tr v-for="header in headers" :key="header.value">
+      <td class="table__header">
+        {{ header.text }}
+      </td>
+      <td colspan="10" class="table__info">
+        {{ tooltipItem[header.value] }}
+      </td>
+    </tr>
+    <tr>
+      <td class="table__header"></td>
+      <td v-for="layer in 5" :key="layer" class="table__info font-weight-bold">
+        {{ 'Layer ' + layer }}
+      </td>
+    </tr>
+    <tr v-for="header in headersMultiple" :key="header.value">
+      <td class="table__header">
+        {{ header.text }}
+      </td>
+      <td v-for="number in 5" :key="number" class="table__info">
+        {{ tooltipItem[header.value + number] }}
+      </td>
+    </tr>
+  </tbody>
 </template>
 
 <script>
@@ -63,6 +62,8 @@ export default {
           text: 'Fraction of porosity (void space) from which anions are excluded',
           value: 'ANION_EXCL',
         },
+      ],
+      headersMultiple: [
         {
           text: 'Depth of layer bottom, mm',
           value: 'SOL_Z',
@@ -127,21 +128,23 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.td-header {
-  padding: 0;
-  margin: 0;
+.table__header {
   background-color: #393d3f;
   color: white;
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
 }
 
-.td-info {
+.table__info {
   border-left: 1px solid rgb(222, 221, 215);
-  border-bottom: 1px solid rgb(222, 221, 215);
-  border-top: 1px solid rgb(222, 221, 215);
+  background-color: #ffffff;
+  color: #000000;
 }
-v-simple-table th {
-  font-size: 2px !important;
+
+.table__info,
+.table__header {
+  border-top: 1px solid rgb(222, 221, 215);
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 0.8em;
+  line-height: 2vh;
 }
 </style>
