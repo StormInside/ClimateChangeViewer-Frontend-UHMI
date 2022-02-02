@@ -2,32 +2,33 @@
   <v-main>
     <v-container fluid class="pa-0">
       <div style="height: 100vh; width: 100vw">
-        <client-only>
-          <l-map
-            :center="mapsData.mapConfig.center"
-            :zoom="mapsData.mapConfig.zoom"
-            :options="mapsData.mapOptions"
-            @mousemove="mousemove($event)"
-          >
-            <l-control>
-              <lazy-layers-control-panel-main-control />
-            </l-control>
-            <l-control-attribution position="bottomleft" :prefix="false" />
-            <component :is="geoComponentInfo" />
-            <l-tile-layer
-              v-for="tile in mapsData.mapsProviders"
-              :key="tile.name"
-              :url="tile.url"
-              :name="tile.name"
-              :attribution="tile.attribution"
-              :subdomains="tile.subdomains"
-              :tms="tile.tms"
-              :visible="tile.visible"
-              layer-type="base"
+        <l-map
+          ref="map"
+          style="width: 100%; height: 100%"
+          :center="mapsData.mapConfig.center"
+          :zoom="mapsData.mapConfig.zoom"
+          :options="mapsData.mapOptions"
+          @mousemove="mousemove($event)"
+        >
+          <l-control>
+            <lazy-layers-control-panel-main-control
+              @screenshot="saveMapImage"
             />
-            <component :is="geoComponent" class="layers" />
-          </l-map>
-        </client-only>
+          </l-control>
+          <l-control-attribution position="bottomleft" :prefix="false" />
+          <component :is="geoComponentInfo" />
+          <l-tile-layer
+            v-for="tile in mapsData.mapsProviders"
+            :key="tile.name"
+            :url="tile.url"
+            :name="tile.name"
+            :subdomains="tile.subdomains"
+            :tms="tile.tms"
+            :visible="tile.visible"
+            layer-type="base"
+          />
+          <component :is="geoComponent" />
+        </l-map>
       </div>
     </v-container>
   </v-main>
@@ -35,16 +36,24 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { SimpleMapScreenshoter } from 'leaflet-simple-map-screenshoter'
+import { saveAs } from 'file-saver'
 
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      output: null,
+      map: {},
+    }
+  },
   computed: {
-    ...mapGetters('map', [
-      'mapsData',
-      'geoComponent',
-      'geoComponentInfo',
-      'ukraineBordersShow',
-    ]),
+    ...mapGetters('map', ['mapsData', 'geoComponent', 'geoComponentInfo']),
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.map = this.$refs.map.mapObject
+    })
   },
   methods: {
     mousemove(event) {
@@ -53,16 +62,27 @@ export default {
         y: event.originalEvent.clientY,
       })
     },
+    saveMapImage() {
+      const pluginOptions = {
+        ropImageByInnerWH: true,
+        hidden: true,
+        domtoimageOptions: {
+          height: 1080,
+          width: 1920,
+        },
+        mimeType: 'image/png',
+        caption: null,
+      }
+      this.simpleMapScreenshoter = new SimpleMapScreenshoter(
+        pluginOptions
+      ).addTo(this.map)
+      const format = 'image'
+      this.simpleMapScreenshoter
+        .takeScreen(format, pluginOptions)
+        .then((image) => {
+          saveAs(image, 'image.jpg')
+        })
+    },
   },
 }
 </script>
-<style scoped lang="scss">
-.uaLayer {
-  position: absolute;
-  z-index: 1;
-}
-.layers {
-  position: absolute;
-  z-index: 111;
-}
-</style>
