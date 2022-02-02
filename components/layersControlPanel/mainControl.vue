@@ -14,6 +14,18 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-row class="mt-0">
+      <v-col cols="12" class="d-flex justify-end">
+        <v-btn tile @click="$emit('screenshot')">
+          <v-icon>mdi-information-outline</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
+    <v-row class="mt-0">
+      <v-col cols="12" class="d-flex justify-end">
+        <v-btn tile @click="$emit('screenshot')"> EN </v-btn>
+      </v-col>
+    </v-row>
     <transition name="layers-control__card">
       <v-row v-show="showControl" class="layers-control__card">
         <v-col cols="12">
