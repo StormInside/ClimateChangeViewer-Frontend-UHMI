@@ -1,0 +1,7 @@
+test/unit/coverage/**
+test/unit/*.js
+test/e2e/*.js
+.electron-vue/dev-client.js
+src/store/modules/index.js
+src/components/Charts/chartjs-plugin-downsample.js
+src/**
