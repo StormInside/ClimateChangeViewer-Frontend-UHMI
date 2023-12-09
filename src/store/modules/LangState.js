@@ -1,5 +1,5 @@
 const state = {
-  currLang: 'en',
+  currLang: 'ua',
   langs: ['en', 'ua'],
 };
 const actions = {
