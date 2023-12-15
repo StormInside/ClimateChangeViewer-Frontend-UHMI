@@ -534,7 +534,7 @@ export default {
       clickedOverlayLayer: null,
       isExportingToJpeg: false,
       overlayLayerIsLoading: false,
-      serverUrl: "http://212.26.138.5:5001/",
+      serverUrl: "https://api.uhmi.org.ua/",
       serverKey:
         "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTYyOTQwMjg5NywiaWF0IjoxNjI5NDAyODk3fQ.NRZxQT8LQws7vq5ZQAUZI4OZb37BAvvuvFb1Du8Nr2w",
       overlayMethods: {
