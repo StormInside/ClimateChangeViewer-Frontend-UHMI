@@ -1104,7 +1104,7 @@ export default {
         "Climate projections (Euro-CORDEX)"
       ) {
         valueType =
-          this.currentOptOverlayLayer.realLabel === "Precipitation"
+          this.currentOptOverlayLayer.realLabel === "Precipitation" || this.currentOptOverlayLayer.realLabel === "Опади"
             ? "pr"
             : "tas";
       }
@@ -1112,7 +1112,7 @@ export default {
         this.currentOptOverlayLayer.parentName === "Historical observations"
       ) {
         valueType =
-          this.currentOptOverlayLayer.realLabel === "Precipitation"
+          this.currentOptOverlayLayer.realLabel === "Precipitation" || this.currentOptOverlayLayer.realLabel === "Опади"
             ? "rr"
             : ["tm", "tn", "tx"];
       }
@@ -1321,6 +1321,7 @@ export default {
       }
     },
     replaceOverlayStrParams(strParams) {
+      console.log(strParams)
       // Здесь мы делаем замену типа слоёв с "Air temperature" на "Precipitation" и наоборот
       this.dynamicOverlayLayers.forEach((mainOverlay) => {
         mainOverlay.realLabel = strParams.realLabel;

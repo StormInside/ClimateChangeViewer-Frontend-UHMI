@@ -380,6 +380,7 @@ export default {
         try {
           chart.update();
         } catch (e) {
+          console.error(e);
           return e;
         }
       }
