@@ -302,7 +302,7 @@ export default {
             chart.getDatasetMeta(index).hidden === null
               ? !chart.data.datasets[index].hidden
               : null;
-          if (li.querySelector("p").innerText.includes("emissions scenario")) {
+          if (li.querySelector("p").innerText.includes("emissions scenario") || li.querySelector("p").innerText.includes("викидів")) {
             chart.getDatasetMeta(index - 1).hidden =
               chart.getDatasetMeta(index - 1).hidden === null
                 ? !chart.data.datasets[index - 1].hidden

@@ -26,7 +26,7 @@
             src="@/assets/icons/inst.svg"
           />
           <template v-if="lang == 'ua'">
-            Український Гідрометеорологічний Інститут
+            Український гідрометеорологічний інститут ДСНС України та НАН України
           </template>
           <template v-else>
             Ukrainian Hydrometeorological Institute
@@ -58,7 +58,7 @@
         </div>
 
         <!-- to 'center' name -->
-        <div style="width: 460px;"></div>
+        <div style="width: 500px;"></div>
       </header>
       <div style="position: relative; top: 80px;">
         <v-select
@@ -1321,7 +1321,6 @@ export default {
       }
     },
     replaceOverlayStrParams(strParams) {
-      console.log(strParams)
       // Здесь мы делаем замену типа слоёв с "Air temperature" на "Precipitation" и наоборот
       this.dynamicOverlayLayers.forEach((mainOverlay) => {
         mainOverlay.realLabel = strParams.realLabel;
@@ -1525,7 +1524,7 @@ export default {
     align-items: center;
 
     &--big {
-      max-width: 220px;
+      max-width: 260px;
       gap: 16px;
       font-size: 10px;
       font-weight: 700;
@@ -1727,7 +1726,7 @@ export default {
   position: absolute;
   z-index: 500;
   right: calc(#{$layers-group-icon-size} + #{$layers-group-icon-padding} + #{$map-lists-margin-left} + 0.8571428571428571rem); //  12px / 14
-  top: calc(#{$viz-control-position-top} + #{$layers-group-icon-size} + #{$layers-group-icon-padding} + calc(#{$layers-group-icon-border-width} * 2) + 8px);
+  top: calc(#{$viz-control-position-top} + #{$layers-group-icon-size} + #{$layers-group-icon-padding} + calc(#{$layers-group-icon-border-width} * 2) + 30px);
   border: $layers-group-icon-border-width solid $main-darkbrown;
   border-radius: $layers-group-icon-border-radius;
   min-height: fit-content;

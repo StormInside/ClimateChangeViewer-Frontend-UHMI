@@ -62,7 +62,9 @@ export default {
       });
     },
     createCircles(feature, latlng) {
-      return circleMarker(latlng, this.selectedGauges?.[0]?.nameUkr == feature.properties.St_UA ? this.style.active : this.style.passive).bindTooltip(
+      let style = this.style.passive;
+      if(this.selectedGauges?.[0]?.nameUkr && feature.properties.St_UA && this.selectedGauges?.[0]?.nameUkr == feature.properties.St_UA) style = this.style.active;
+      return circleMarker(latlng, style).bindTooltip(
         this.createTooltip(feature.properties)
       );
     },
