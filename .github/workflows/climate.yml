@@ -1,0 +1,14 @@
+name: Update Climate
+on:
+  push:
+    branches:
+      - localize-end_2023-Herman
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: [self-hosted, linux, x64, climate]
+    steps:
+      - name: Updating files
+        working-directory: /home/speka/Web_Pages/Nginx/ClimateChangeViewer-Frontend-UHMI
+        run:
+          git pull
