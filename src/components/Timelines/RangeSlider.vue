@@ -10,8 +10,6 @@
       :style="{ left: tooltipPosition }"
     >
       {{ tooltipValue }}
-      <template v-if="$store.state.LangState.currLang == 'en'">(Projected)</template>
-      <template v-else>(Кліматична модель)</template>
     </div>
     <input
       type="range"
