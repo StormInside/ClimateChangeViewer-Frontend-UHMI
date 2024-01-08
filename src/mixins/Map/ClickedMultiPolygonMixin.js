@@ -47,9 +47,9 @@ export default {
   computed: {
     getMeassureUnit() {
       let meassureUnit = "";
-      if (this.layerType === "Precipitation") {
+      if (this.layerType === "Precipitation" || this.layerType === "Опади") {
         meassureUnit = "%";
-      } else if (this.layerType === "Air temperature") {
+      } else if (this.layerType === "Air temperature" || this.layerType === "Температура повітря") {
         meassureUnit = " °C";
       }
       return meassureUnit;
@@ -68,9 +68,9 @@ export default {
     },
     getTargetPropertyName() {
       //eslint-disable-next-line
-      let kindOfData = this.layerType === "Precipitation" ? "pcp" : "tmp";
+      let kindOfData = (this.layerType === "Precipitation" || this.layerType === "Опади") ? "pcp" : "tmp";
       if (this.layerPrefix === "observed") {
-        kindOfData = this.layerType === "Precipitation" ? "RR" : "Tm";
+        kindOfData = (this.layerType === "Precipitation" || this.layerType === "Опади") ? "RR" : "Tm";
       }
       const endOfPeriod = parseInt(this.currentPeriod.split("-")[1]);
       let season;
@@ -94,7 +94,7 @@ export default {
     },
     generateColorObj(layerProperties) {
       const kindOfData =
-        this.layerType === "Precipitation" ? "Precipitation" : "Temperature";
+        (this.layerType === "Precipitation" || this.layerType === "Опади") ? "Precipitation" : "Temperature";
       const targetPropertyName = this.getTargetPropertyName();
       const value = layerProperties[targetPropertyName];
       let color = "rgba(0, 0, 0, 0)";

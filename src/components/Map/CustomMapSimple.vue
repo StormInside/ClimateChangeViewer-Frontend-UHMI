@@ -60,7 +60,7 @@
         <!-- to 'center' name -->
         <div style="width: 500px;"></div>
       </header>
-      <div style="position: relative; top: 80px;">
+      <div style="position: relative; top: 78px;">
         <v-select
           :options="seasons.allSeasons"
           :label="$store.state.LangState.currLang"
