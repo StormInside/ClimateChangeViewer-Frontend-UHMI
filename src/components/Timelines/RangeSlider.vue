@@ -96,17 +96,21 @@ export default {
   },
   computed: {
     tooltipValue() {
+      console.log(this.tooltipMode)
       if (this.tooltipMode === "historical") {
         const desciption =
-          parseInt(this.closestLabelValue.split("-")[1]) <= 2021
-            ? {
-              en: "Historical",
-              ua: "Спостереження"
-            }
-            : {
-              en: "Projected",
-              ua: "Кліматична модель"
-            };
+        {
+          en: "Historical",
+          ua: "Спостереження"
+        }
+        return `${this.closestLabelValue} (${desciption[this.$store.state.LangState.currLang]})`;
+      }
+      else {
+        const desciption =
+        {
+          en: "Projected",
+          ua: "Кліматична модель"
+        }
         return `${this.closestLabelValue} (${desciption[this.$store.state.LangState.currLang]})`;
       }
       return `${this.closestLabelValue}`;
@@ -164,7 +168,7 @@ export default {
             this.tooltipPanelWidth / 2)
           }px`;
       else
-        return `${-22 -
+        return `${-2 -
           (this.currentIndex >= this.positionAndLabels.length / 2
             ? ((this.currentIndex - 1) * -3) / this.currentRootFontSize
             : this.currentIndex < Math.floor(this.positionAndLabels.length / 3)
@@ -535,4 +539,5 @@ input[type="range"]:focus::-ms-fill-upper {
   opacity: 0;
   pointer-events: none;
   box-shadow: 1px 1px 2px $main-darkbrown;
-}</style>
+}
+</style>
