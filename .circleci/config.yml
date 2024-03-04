@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  test-update:
+    machine: true
+    resource_class: storminside/ibm-server
+    working_directory: /home/ubuntu/web/simple_pages/test_versions/AgroStats-Frontend-UHMI
+    steps:
+      - run:
+          name: Update repo
+          command: git pull
+
+  prod-update:
+    machine: true
+    resource_class: storminside/ibm-server
+    working_directory: /home/ubuntu/web/simple_pages/prod_versions/ClimateChangeViewer-Frontend-UHMI
+    steps:
+      - run:
+          name: Update repo
+          command: git pull
+
+workflows:
+  version: 2
+  update-build-run:
+    jobs:
+      - test-update:
+          filters:
+            branches:
+              only: Test
+      - prod-update:
+          filters:
+            branches:
+              only: Production
