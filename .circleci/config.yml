@@ -4,7 +4,7 @@ jobs:
   test-update:
     machine: true
     resource_class: storminside/ibm-server
-    working_directory: /home/ubuntu/web/simple_pages/test_versions/AgroStats-Frontend-UHMI
+    working_directory: /home/ubuntu/web/simple_pages/test_versions/ClimateChangeViewer-Frontend-UHMI
     steps:
       - run:
           name: Update repo
