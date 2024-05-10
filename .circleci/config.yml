@@ -10,7 +10,6 @@ jobs:
           command: ssh $SSH_COMMAND "cd $PROD_LOCATION && git pull"
 
 
-
   update-test-repo:
     machine:
       image: ubuntu-2204:current
