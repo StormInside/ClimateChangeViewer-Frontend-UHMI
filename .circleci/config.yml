@@ -1,33 +1,36 @@
 version: 2.1
 
 jobs:
-  test-update:
-    machine: true
-    resource_class: storminside/ibm-server
-    working_directory: /home/ubuntu/web/simple_pages/test_versions/ClimateChangeViewer-Frontend-UHMI
+  update-prod-repo:
+    machine:
+      image: ubuntu-2204:current
     steps:
       - run:
-          name: Update repo
-          command: git pull
+          name: Update Production repo
+          command: ssh $SSH_COMMAND "cd $PROD_LOCATION && git pull"
 
-  prod-update:
-    machine: true
-    resource_class: storminside/ibm-server
-    working_directory: /home/ubuntu/web/simple_pages/prod_versions/ClimateChangeViewer-Frontend-UHMI
+
+
+  update-test-repo:
+    machine:
+      image: ubuntu-2204:current
     steps:
       - run:
-          name: Update repo
-          command: git pull
+          name: Update Testing repo
+          command: ssh $SSH_COMMAND "cd $TEST_LOCATION && git pull"
+
+
 
 workflows:
-  version: 2
   update-build-run:
     jobs:
-      - test-update:
-          filters:
-            branches:
-              only: Test
-      - prod-update:
+      - update-prod-repo:
           filters:
             branches:
               only: Production
+
+
+      - update-test-repo:
+          filters:
+            branches:
+              only: Test
