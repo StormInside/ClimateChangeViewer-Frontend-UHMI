@@ -1,0 +1,35 @@
+version: 2.1
+
+jobs:
+  update-prod-repo:
+    machine:
+      image: ubuntu-2204:current
+    steps:
+      - run:
+          name: Update Production repo
+          command: ssh $SSH_COMMAND "cd $PROD_LOCATION && git pull"
+
+
+  update-test-repo:
+    machine:
+      image: ubuntu-2204:current
+    steps:
+      - run:
+          name: Update Testing repo
+          command: ssh $SSH_COMMAND "cd $TEST_LOCATION && git pull"
+
+
+
+workflows:
+  update-build-run:
+    jobs:
+      - update-prod-repo:
+          filters:
+            branches:
+              only: Production
+
+
+      - update-test-repo:
+          filters:
+            branches:
+              only: Test
