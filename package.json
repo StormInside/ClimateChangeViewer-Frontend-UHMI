@@ -1,54 +1,94 @@
 {
-  "name": "hydrological",
-  "version": "1.0.0",
+  "name": "basin_management_tool_simple",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue}\" --ignore-path .gitignore",
-    "lint:prettier": "prettier --check .",
-    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
-    "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix && npm run lint:style -- --fix",
-    "prepare": "husky install"
+    "serve": "vue-cli-service serve",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.19.3",
-    "file-saver": "^2.0.5",
-    "json-loader": "^0.5.7",
+    "axios": "^0.21.1",
+    "cfonts": "^2.1.2",
+    "chart.js": "^2.9.4",
+    "core-js": "^3.6.5",
+    "css-loader": "^0.28.11",
     "leaflet": "^1.7.1",
-    "leaflet-simple-map-screenshoter": "^0.4.5",
-    "nuxt": "^2.15.8",
-    "nuxt-leaflet": "^0.0.27",
-    "vue": "^2.6.14",
+    "mini-css-extract-plugin": "0.4.0",
+    "node-loader": "^0.6.0",
+    "qs": "^6.5.2",
+    "regenerator-runtime": "^0.11.1",
+    "require-dir": "^1.0.0",
+    "sass": "^1.69.5",
+    "style-loader": "^0.21.0",
+    "style-resources-loader": "^1.4.1",
+    "v-tooltip": "^2.1.3",
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.1",
+    "vue-eslint-parser": "~7.1.0",
+    "vue-gtag": "^1.16.1",
+    "vue-html-loader": "^1.2.4",
     "vue-html2canvas": "^0.0.4",
-    "vue-server-renderer": "^2.6.14",
-    "vue-template-compiler": "^2.6.14",
-    "vuetify": "^2.6.1",
-    "vuex": "^3.6.2",
-    "webpack": "^4.46.0"
+    "vue-loader": "^15.2.4",
+    "vue-router": "^3.0.1",
+    "vue-select": "^3.11.2",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.16",
+    "vue2-leaflet": "^2.7.0",
+    "vuex": "^3.0.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-hot-middleware": "^2.22.2",
+    "webpack-merge": "^4.1.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
-    "@nuxt/types": "~2.15.0",
-    "@nuxtjs/eslint-config": "^8.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/stylelint-module": "^4.1.0",
-    "@nuxtjs/vuetify": "^1.12.3",
-    "eslint": "^8.4.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-nuxt": "^3.1.0",
-    "eslint-plugin-vue": "^8.2.0",
-    "husky": "^7.0.4",
-    "postcss-html": "^1.3.0",
-    "prettier": "^2.5.1",
-    "stylelint": "^14.1.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-recommended-vue": "^1.1.0",
-    "stylelint-config-standard": "^24.0.0"
-  }
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "file-loader": "^4.2.0",
+    "json-loader": "^0.5.7",
+    "sass-loader": "^7.1.0",
+    "url-loader": "^2.2.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "no-debugger": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maribor666/basin_management_tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maribor666/basin_management_tool/issues"
+  },
+  "homepage": "https://github.com/maribor666/basin_management_tool#readme"
 }

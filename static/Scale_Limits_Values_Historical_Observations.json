@@ -1,0 +1,38 @@
+{
+  "values": {
+    "min_tmp": {
+      "observed": -0.4,
+      "winter": -1.4,
+      "spring": -1.4,
+      "summer": -0.4,
+      "autumn": -0.8
+    },
+    "max_tmp": {
+      "observed": 2.1,
+      "winter": 2.7,
+      "spring": 2.1,
+      "summer": 2.5,
+      "autumn": 1.7
+    },
+    "min_pcp": {
+      "observed": -18,
+      "winter": -34,
+      "spring": -23,
+      "summer": -35,
+      "autumn": -24
+    },
+    "max_pcp": {
+      "observed": 67,
+      "winter": 65,
+      "spring": 61,
+      "summer": 109,
+      "autumn": 51
+    }
+  },
+  "result": {
+    "minTemperature": -1.4,
+    "maxTemperature": 2.7,
+    "minPrecipitation": -35,
+    "maxPrecipitation": 109
+  }
+}
