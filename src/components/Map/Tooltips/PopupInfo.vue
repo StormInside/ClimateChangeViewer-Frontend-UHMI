@@ -27,9 +27,8 @@
             <br />
             When using historical temperature observations, refer to the article in Data in Brief:
             <br />
-            Osadchyi, V., Skrynyk, Olesya, Palamarchuk, L., Skrynyk, Oleg, Osypov, V., Oshurok, D., Sidenko, V., 2022.
-            Dataset of gridded time series of monthly air temperature (min, max, mean) and atmospheric precipitation for
-            Ukraine covering the period of 1946–2020. Data Br. 44, 108553. https://doi.org/10.1016/j.dib.2022.108553
+            Osypov, V., Filippov, N., Mossur, H., Ahafonov, Y., Skrynyk, O., Osadcha, N., Osadchyi, V., 2025. Climate Change Viewer: User-Friendly Web Tool for Climate Change Tracking in Ukraine. Geomatics Environ. Eng. 19, 49–70. 
+            <a class="info__link" href="https://doi.org/10.7494/geom.2025.19.5.49">https://doi.org/10.7494/geom.2025.19.5.49</a>
           </p>
         </div>
         <div class="info__block">
@@ -588,9 +587,8 @@
             <br />
             Під час використання історичних даних спостережень за температурою посилатися на статтю у Data in Brief:
             <br />
-            Osadchyi, V., Skrynyk, Olesya, Palamarchuk, L., Skrynyk, Oleg, Osypov, V., Oshurok, D., Sidenko, V., 2022.
-            Dataset of gridded time series of monthly air temperature (min, max, mean) and atmospheric precipitation for
-            Ukraine covering the period of 1946–2020. Data Br. 44, 108553. https://doi.org/10.1016/j.dib.2022.108553
+            Osypov, V., Filippov, N., Mossur, H., Ahafonov, Y., Skrynyk, O., Osadcha, N., Osadchyi, V., 2025. Climate Change Viewer: User-Friendly Web Tool for Climate Change Tracking in Ukraine. Geomatics Environ. Eng. 19, 49–70. 
+            <a class="info__link" href="https://doi.org/10.7494/geom.2025.19.5.49">https://doi.org/10.7494/geom.2025.19.5.49</a>
           </p>
         </div>
         <div class="info__block">
