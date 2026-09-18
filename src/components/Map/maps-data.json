@@ -18,8 +18,12 @@
     ]
   },
   "settingsItem": {
-    "titles": ["SWAT"],
-    "routes": ["/settings-item/swat"]
+    "titles": [
+      "SWAT"
+    ],
+    "routes": [
+      "/settings-item/swat"
+    ]
   },
   "vizItem": {
     "mapOfUkraine": [
@@ -29,18 +33,29 @@
           "ua": "Esri без позначень"
         },
         "zoom": 5.5,
-        "center": ["48.517834614762336", "32.2225272566878"],
-        "url": "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+        "center": [
+          "48.517834614762336",
+          "32.2225272566878"
+        ],
+        "url": "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_3q2z_1_61f23435f55ae3d2db53936f",
         "attribution": "<div style='font-size: 0.8571428rem; display: flex;'>USGS, NOAA</div>",
         "visible": true,
         "tms": false,
-        "subdomains": ["a", "b", "c", "d"],
+        "subdomains": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
         "mapOptions": {
           "maxZoom": 19,
           "minZoom": 1,
           "zoomSnap": 0.5,
           "zoomControl": false,
-          "padding": [0, 0],
+          "padding": [
+            0,
+            0
+          ],
           "attributionControl": false
         }
       },
@@ -50,7 +65,10 @@
           "ua": "Візіком"
         },
         "zoom": 6.5,
-        "center": ["48.517834614762336", "32.2225272566878"],
+        "center": [
+          "48.517834614762336",
+          "32.2225272566878"
+        ],
         "url": "https://tms{s}.visicom.ua/2.0.0/planet3/base_uk/{z}/{x}/{y}.png?key=2349912336cf6a00ee14f795661f5281",
         "attribution": "<div style='font-size: 0.8571428rem; display: flex;'>Дані карт © 2019 ЧАО «<a href='https://api.visicom.ua/'>Визиком</a>»</div>",
         "subdomains": "123",
@@ -60,7 +78,10 @@
           "zoomSnap": 0.5,
           "zoomControl": false,
           "maxZoom": 19,
-          "padding": [0, 0],
+          "padding": [
+            0,
+            0
+          ],
           "attributionControl": false
         }
       },
@@ -70,18 +91,27 @@
           "ua": "Esri топографічна"
         },
         "zoom": 6.5,
-        "center": ["48.517834614762336", "32.2225272566878"],
+        "center": [
+          "48.517834614762336",
+          "32.2225272566878"
+        ],
         "url": "http://{s}.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
         "attribution": "<div style='font-size: 0.8571428rem; display: flex;'>USGS, NOAA</div>",
         "visible": false,
         "tms": false,
-        "subdomains": ["server", "services"],
+        "subdomains": [
+          "server",
+          "services"
+        ],
         "mapOptions": {
           "maxZoom": 19,
           "minZoom": 1,
           "zoomSnap": 0.5,
           "zoomControl": false,
-          "padding": [0, 0],
+          "padding": [
+            0,
+            0
+          ],
           "attributionControl": false
         }
       }
